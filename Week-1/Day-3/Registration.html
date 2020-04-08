@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.container {
+  padding: 32px;
+}
+
+body {
+
+  background-color: blue;
+
+}
+button:hover {
+  opacity: 1.8;
+}
+button {
+  background-color: lime;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+</style>
+</head>
+<body>
+ <div class="container">
+<form action="welcomeform.html" method="POST">
+<table width="100%" align="center">
+<tr>
+    <h1>Register</h1>
+    <hr>
+	</tr>
+
+    <tr>
+<td><b>Email</b></td>
+    <td><input type="text" placeholder="Enter Email" name="email" required></td>
+</tr>
+<tr>
+    <td><b>Password</b></td>
+    <td><input type="password" placeholder="Enter Password" name="psw" required></td>
+	</tr>
+<tr>
+    <td><b>Repeat Password</b></td>
+    <td><input type="password" placeholder="Repeat Password" name="psw-repeat" required></td>
+	</tr>
+
+    <tr><td><center><button type="submit">Register</button></center></td></tr>
+    </table>
+
+    <p>Already have an account? <a href="siginpage.html">Sign in</a>.</p>
+
+</form>
+</div>
+
+</body>
+</html>
