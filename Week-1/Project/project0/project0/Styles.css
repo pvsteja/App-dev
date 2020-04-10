@@ -1,44 +1,43 @@
 #homeBody{
    background-image: url("Fortuner1.jpg");
-         background-repeat: no-repeat;
-         background-size: 1500px 800px;
+        background-size: 1550px 800px;
 }
-/* Header/logo Title */
 header {
 padding : 10px;
-  color: white;
-  background-color :  grey;
-  text-align : center;
-  display: block;
-  width:1500px;
-  height:100px;
-  font-size:60px;
+      color: white;
+      background-color :  grey;
+      text-align : center;
+      width:auto;
+      height:auto;
+      font-size:60px;
   
 
 }
 #colorbody{
-  
-  background-color : grey;
-  display: inline-block;
+    background-color : grey;
 }
 #specBody{
-  background-color : grey;
-  color:white;
+    background-color : grey;
+    color:black;
 }
+
 nav{
-    width:1500px;
+    width:auto;
   
 }
-
+@media screen and (max-width: 100px) {
+  nav {
+    float: none;
+    width: 100%;
+  }
+}
 section{
-  padding: 10px;
-  width : 450px;
-    align-content: center;
-
+    padding: 10px;
+    width : 450px;
 }
 
 .colorheader{
-  text-align:center;
+    text-align:center;
     font-weight: bold;
     color:white;
 
