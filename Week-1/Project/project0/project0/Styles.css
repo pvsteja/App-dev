@@ -1,0 +1,27 @@
+body{
+	background-image: url("Fortuner1.jpg");
+ background-repeat: no-repeat;
+  background-size: 1500px 800px;
+  }
+
+/* Header/logo Title */
+header {
+padding : 10px;
+  color: white;
+  background-color :  grey;
+  text-align : center;
+  display: block;
+  width:1366px;
+  height:100px;
+  font-size:50px;
+  
+
+}
+nav
+{
+	  width:1366px;
+
+	
+}
+
+
