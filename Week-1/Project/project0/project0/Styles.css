@@ -1,6 +1,9 @@
+
+
+/*# sourceMappingURL=Styles.css.map */
 #homeBody{
    background-image: url("Fortuner1.jpg");
-        background-size: 1550px 800px;
+        background-size: $backgroundsize;
 }
 header {
 padding : 10px;
@@ -42,4 +45,3 @@ section{
     color:white;
 
 }
-
