@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Registration Page</title>
+      <title>Login Form</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href = "styles.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <header>Login Form</header>
+      <!-- <header></header> -->
    </head>
    <body>
       <div class="container">
-         <h1>Please Register here</h1>
+         <h1>Login Form</h1>
          <form action="{{url_for('register')}}" method="POST">
             <div class="form-group">
                <label for="user">User:</label>
@@ -22,7 +22,7 @@
                <label for="pwd">Password:</label>
                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
             </div>
-            <button type="Login" class="btn btn-default">Login</button>
+            <button type="Login" class="btn btn-default" name = "action" value="Login">Login</button>
             <button type="submit" class="btn btn-info" name = "action" value="register">Register</button>
             <!-- <p id="signin">Create account ! </p> -->
             <!-- <a href="siginpage.html">Register</a> -->

@@ -62,9 +62,23 @@ def register():
 			return render_template("response.html", user = user)
 		except exc.IntegrityError:
 			return render_template("RegistrationWebApp.html")
-
+	
+@app.route("/auth", methods = ["GET", "POST"])
+def authentication():
+	if request.method == "POST":
+		name = request.form.get("username")
+		password = request.form.get("username")
+		userobject = users.query.get(name)
+		if userobject:
+			if password == userobject.password:
+				session["name"] = name
+				return redirect(url_for('index'))
+			else :
+				return render_template("RegistrationWebApp.html")
+		else :
+			return render_template("RegistrationWebApp.html")
 @app.route("/admin")
-def table():
+def admin():
 	user = users.query.order_by(users.time).all()
 	# user_data = db.query(User)
 	return render_template("usersdatabase.html", user=user)
