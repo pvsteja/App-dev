@@ -40,7 +40,10 @@ Session(app)
 
 @app.route("/")
 def index():
-	return "Project 1: TODO"
+	if 'user' not in session :
+		return redirect(url_for('register'))
+	elif session['user'] :
+		return render_template("logout.html")
 
 @app.route("/register", methods = ["GET", "POST"])
 def register():
