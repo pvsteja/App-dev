@@ -45,6 +45,11 @@ def index():
 	elif session['name'] :
 		return render_template("logout.html")
 
+@app.route("/logout")
+def logout():
+	session.clear()
+	return redirect(url_for('register'))
+	
 @app.route("/register", methods = ["GET", "POST"])
 def register():
 
