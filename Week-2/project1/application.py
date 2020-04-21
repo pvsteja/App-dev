@@ -40,9 +40,9 @@ Session(app)
 
 @app.route("/")
 def index():
-	if 'name' not in session :
+	if 'username' not in session :
 		return redirect(url_for('register'))
-	elif session['name'] :
+	elif session['username'] :
 		return render_template("logout.html")
 
 @app.route("/logout")
@@ -58,7 +58,7 @@ def register():
 	elif request.form['action'] == 'register':
 		user = request.form.get("username")
 		password = request.form.get("pwd")
-		print("name:", user)
+		# print("username:", user)
 		timestamp = datetime.datetime.now()
 		user = users(user=user, password=password,time=timestamp)
 		try:
@@ -78,8 +78,8 @@ def authentication():
 		userobject = users.query.get(name)
 		if userobject:
 			if password == userobject.password:
-				print(name, password)
-				session["name"] = name
+				# print(name, password)
+				session["username"] = name
 				return redirect(url_for('index'))
 			else :
 				return render_template("RegistrationWebApp.html", flag1 = 1)
