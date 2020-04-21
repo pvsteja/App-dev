@@ -40,9 +40,9 @@ Session(app)
 
 @app.route("/")
 def index():
-	if 'user' not in session :
+	if 'name' not in session :
 		return redirect(url_for('register'))
-	elif session['user'] :
+	elif session['name'] :
 		return render_template("logout.html")
 
 @app.route("/register", methods = ["GET", "POST"])
@@ -62,15 +62,18 @@ def register():
 			return render_template("response.html", flag3 = 1)
 		except exc.IntegrityError:
 			return render_template("RegistrationWebApp.html", flag = flag)
+	elif request.form['action'] == 'Login':
+		return authentication()
 	
 @app.route("/auth", methods = ["GET", "POST"])
 def authentication():
 	if request.method == "POST":
 		name = request.form.get("username")
-		password = request.form.get("username")
+		password = request.form.get("pwd")
 		userobject = users.query.get(name)
 		if userobject:
 			if password == userobject.password:
+				print(name, password)
 				session["name"] = name
 				return redirect(url_for('index'))
 			else :
