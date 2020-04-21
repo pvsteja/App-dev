@@ -59,9 +59,9 @@ def register():
 		try:
 			db.session.add(user)
 			db.session.commit()
-			return render_template("response.html", user = user)
+			return render_template("response.html", flag3 = 1)
 		except exc.IntegrityError:
-			return render_template("RegistrationWebApp.html")
+			return render_template("RegistrationWebApp.html", flag = flag)
 	
 @app.route("/auth", methods = ["GET", "POST"])
 def authentication():
@@ -74,9 +74,9 @@ def authentication():
 				session["name"] = name
 				return redirect(url_for('index'))
 			else :
-				return render_template("RegistrationWebApp.html")
+				return render_template("RegistrationWebApp.html", flag1 = 1)
 		else :
-			return render_template("RegistrationWebApp.html")
+			return render_template("RegistrationWebApp.html", flag2 = 1)
 @app.route("/admin")
 def admin():
 	user = users.query.order_by(users.time).all()
