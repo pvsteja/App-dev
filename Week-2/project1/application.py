@@ -40,8 +40,16 @@ Session(app)
 
 @app.route("/")
 def index():
-	return "Project 1: TODO"
+	if 'username' not in session :
+		return redirect(url_for('register'))
+	elif session['username'] :
+		return render_template("logout.html")
 
+@app.route("/logout")
+def logout():
+	session.clear()
+	return redirect(url_for('register'))
+	
 @app.route("/register", methods = ["GET", "POST"])
 def register():
 
@@ -50,18 +58,35 @@ def register():
 	elif request.form['action'] == 'register':
 		user = request.form.get("username")
 		password = request.form.get("pwd")
-		print("name:", user)
+		# print("username:", user)
 		timestamp = datetime.datetime.now()
 		user = users(user=user, password=password,time=timestamp)
 		try:
 			db.session.add(user)
 			db.session.commit()
-			return render_template("response.html", user = user)
+			return render_template("response.html", flag3 = 1)
 		except exc.IntegrityError:
-			return render_template("RegistrationWebApp.html")
-
+			return render_template("RegistrationWebApp.html", flag = flag)
+	elif request.form['action'] == 'Login':
+		return authentication()
+	
+@app.route("/auth", methods = ["GET", "POST"])
+def authentication():
+	if request.method == "POST":
+		name = request.form.get("username")
+		password = request.form.get("pwd")
+		userobject = users.query.get(name)
+		if userobject:
+			if password == userobject.password:
+				# print(name, password)
+				session["username"] = name
+				return redirect(url_for('index'))
+			else :
+				return render_template("RegistrationWebApp.html", flag1 = 1)
+		else :
+			return render_template("RegistrationWebApp.html", flag2 = 1)
 @app.route("/admin")
-def table():
+def admin():
 	user = users.query.order_by(users.time).all()
 	# user_data = db.query(User)
 	return render_template("usersdatabase.html", user=user)
