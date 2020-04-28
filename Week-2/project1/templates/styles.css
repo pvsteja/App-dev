@@ -1,0 +1,18 @@
+header{
+         text-align: center;
+         background-color: blue;
+         width:auto;
+         height:auto;
+         padding : 10px;
+         color: white;
+         font-size:40px
+         }
+         .container{
+         padding: 30px;
+         }
+         #signin{
+         padding: 10px;
+         }
+         input[type=email], input[type=password] {
+         width: 50%;
+         }

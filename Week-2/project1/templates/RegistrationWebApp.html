@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Login Form</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href = "styles.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <!-- <header></header> -->
+   </head>
+   <body>
+      <div class="container">
+         <h1>Login Form</h1>
+         <form action="{{url_for('register')}}" method="POST">
+            {% if flag %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        User already exists. Please login to continue.
+                    </div>
+                {% endif %}
+
+                {% if flag1 %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Incorrect Password.
+                        Please try again.
+                    </div>
+                {% endif %}
+
+                {% if flag2 %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        User doesnot exist.
+                        Please Register inorder to login.
+                    </div>
+                {% endif %}
+
+                {% if flag3 %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Registered Succesfully.
+                    </div>
+                {% endif %}
+            <div class="form-group">
+               <label for="user">User:</label>
+               <input type="text" class="form-control" id="user" placeholder="Enter username" name="username" required>
+            </div>
+            <div class="form-group">
+               <label for="pwd">Password:</label>
+               <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+            </div>
+            <button type="Login" class="btn btn-default" name = "action" value="Login">Login</button>
+            <button type="submit" class="btn btn-info" name = "action" value="register">Register</button>
+            <!-- <p id="signin">Create account ! </p> -->
+            <!-- <a href="siginpage.html">Register</a> -->
+
+         </form>
+      </div>
+   </body>
+</html>
