@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Login Form</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href = "styles.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <!-- <header></header> -->
+    <script>
+    function onSubmit(){
+        var username = document.getElementById("user").value;
+        alert(username)
+        var password = document.getElementById("pwd").value;
+        alert(password)
+        var len = password.length
+        var at = username.indexOf("@");  
+        var dot = username.lastIndexOf("."); 
+        if (username === "" || password === "") {
+            alert("Please fill the form")
+            return false;
+        }
+        else if(!(at < 1 || dot < at+2 || dot +2 >= username.length)) {
+            if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,30})/.test(password)) {
+                alert("User logged in")
+                return true;
+            }
+            else {
+                alert("Password is not strong")
+                document.getElementById("error").innerHTML = "Invalid Password";
+                return false;
+            }
+          
+        } else {
+            alert("invalid username")
+            return false;
+
+        }
+    }
+        </script>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Login Form</h1>
+         <form action="response.html" method="POST">
+            <div class="form-group">
+               <label for="user">User:</label>
+               <input type="text" class="form-control" id="user" placeholder="Enter username" name="user">
+            </div>
+            <div class="form-group">
+               <label for="pwd">Password:</label>
+               <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            </div>
+            <button type="submit" class="btn btn-default" name = "action" value="Login" onclick="return onSubmit()">Login</button>
+            <button type="submit" class="btn btn-info" name = "action" value="register">Register</button><br><br>
+            <div id = "error" style="color:red"> </div>
+            <!-- <p id="signin">Create account ! </p> -->
+            <!-- <a href="siginpage.html">Register</a> -->
+
+         </form>
+      </div>
+   </body>
+</html>
